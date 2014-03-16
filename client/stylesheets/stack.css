@@ -1,0 +1,44 @@
+.post-text{
+	background-color: yellow;
+}
+
+.post-text pre>code:first-child, .wmd-preview pre>code:first-child {
+    max-height: 600px\9;
+    display: block\9;
+}
+.post-text h1, .wmd-preview h1 {
+    font-size: 22px!important;
+    line-height: 24px!important;
+    margin-bottom: 10px!important;
+}
+.post-text {
+    word-wrap: break-word;
+    width: 660px;
+    font-size: 107%;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    line-height: 130%;
+}
+.post-text pre {
+    word-wrap: normal;
+}
+.post-text h1, .post-text h2, .post-text h3 {
+    margin-bottom: 1em;
+}
+.post-text hr {
+    background-color: #ddd;
+    color: #ddd;
+}
+.wmd-preview img {
+    max-width: 640px;
+}
+.wmd-preview h1, .wmd-preview h2, .wmd-preview h3 {
+    margin-bottom: 1em;
+}
+.post-text img {
+    max-width: 640px;
+}
+
+.post-text {
+	text-align: left;
+}

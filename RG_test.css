@@ -1,0 +1,35 @@
+/* CSS declarations go here */
+.post-text{
+	width:50%;
+	float:left
+}
+.wrapperinput{
+	margin-right: 30px;
+	width: 40%;
+	float:right;
+}
+.comment_container{
+	padding: 1em 3em;
+	border: grey 1px dotted;
+	border-radius: 10px;
+	margin: 1em 1em;
+}
+#new_comment{
+	height: 4em;
+	width: 20em;
+	display: block;
+}
+
+h1{
+	margin:0 0 2% 0
+}
+h1{
+	color:#000;font:bold 52px Helvetica,Arial,Sans-Serif;
+	text-shadow:1px 1px #2BA6CB,2px 2px #2BA6CB,3px 3px #2BA6CB
+}
+h1:hover{
+	position:relative;
+	top:-3px;
+	left:-3px;
+	text-shadow:1px 1px #2ba6cb,2px 2px #2ba6cb,3px 3px #2ba6cb,4px 4px #2ba6cb,5px 5px #2ba6cb
+}
