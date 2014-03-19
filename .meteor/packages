@@ -5,7 +5,8 @@
 
 standard-app-packages
 autopublish
-insecure
 preserve-inputs
 bootstrap
 npm
+accounts-password
+accounts-ui
