@@ -28,7 +28,7 @@ jQuery(document).ready(function($) {
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
-    // Comments.remove({});
-    // code to run on server at startup
+  //allows for authentication with annotation libraries
+  Meteor.require('jwt-simple')
   });
 }
