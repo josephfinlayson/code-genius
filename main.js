@@ -22,7 +22,7 @@ Template.addbutton.events = {
     Comments.insert({
       comment_text: comment_text.val(),
       date: new Date().getTime(),
-    //  "userEmail": Meteor.user().emails[0].address
+      userEmail: Meteor.user().emails[0].address
     });
     comment_text.val("")
   }
