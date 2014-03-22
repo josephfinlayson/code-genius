@@ -1,4 +1,8 @@
 /* CSS declarations go here */
+body{
+	padding: 0 60px;
+}
+
 .post-text{
 	width:50%;
 	float:left
