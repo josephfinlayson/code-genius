@@ -14,7 +14,8 @@
 <div style="float: right">
   {{loginButtons align="right"}}
 </div>
-</template>
+</template>]
+
 
 
 
@@ -36,12 +37,11 @@
 </template>
 
 <template name="comments">
-
-{{#each comment}}
+<!-- #each means for each member of the array comment_array display the following html -->
+{{#each comment_array}}
 <div class ="comment_container">	
 	{{comment_text}}
-	<h2> {{userEmail}} </h2>
-
+	{{userEmail}}
 </div>
 {{/each}}
 </template>
