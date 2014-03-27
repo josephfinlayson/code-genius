@@ -10,10 +10,10 @@
 
 
 <template name="logo">
-<h1 class = "logo">Code Genius</h1>
 <div style="float: right">
   {{loginButtons align="right"}}
 </div>
+<h1 class = "logo">Code Genius</h1>
 </template>
 
 
@@ -30,7 +30,6 @@
 <template name="commentsinput">
 	<div class ="wrapperinput">
 			  
-	{{> new_comment}}
 	{{> comments}}
 	
 	</div>
@@ -40,26 +39,11 @@
 <!-- #each means for each member of the array comment_array display the following html -->
 {{#each comment_array}}
 <div class ="comment_container">	
-	{{comment_text}}
-	{{userEmail}}
+	<span class="comment_text"> {{text}} </span> 
+	<br></br>
+	<span class="comment_footer"> {{userEmail}} </span>
 </div>
 {{/each}}
-</template>
-
-<template name="commentbox">
-  <h1></h1>
-  <textarea rows="40" cols:"60" placeholder="thoughts?" id="new_comment" />
-</template>
-
-<template name="addbutton">
-  <input type="button" class="btn btn-default" value="Click" id="add_comment" />
-</template>
-
-<template name="new_comment">
-	<div class ="commentbutton">
-		{{> commentbox}}
-		{{> addbutton}}
-	</div>
 </template>
 
 <template name="code">

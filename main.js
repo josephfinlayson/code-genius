@@ -1,7 +1,6 @@
 Comments = new Meteor.Collection("comments");
 
 /*
-
 Comments.allow is a function.
 
 It takes a bunch of functions.
@@ -53,6 +52,9 @@ if (Meteor.isClient) {
   Any template will have this 'events' thing. 
 
   */
+
+  /*
+
   Template.addbutton.events = {
 
     // click  is a click event. input specifies look for an
@@ -67,14 +69,53 @@ if (Meteor.isClient) {
       Comments.insert({
         comment_text: comment_text.val(),
         date: new Date().getTime(),
-        userEmail: Meteor.user().emails[0].address
+        userEmail: Meteor.user().emails[0].address,
       });
       comment_text.val("")
-    }
 };
+    }*/
+
+/* George's understanding of this bit (Joe, correct me if I'm wrong?)
+- jQuery: a JS library "designed to simplify the client-side scripting of HTML"
+- $: just a variable name. It refers to the JQuery object:
+-    // The jQuery object is actually just the init constructor 'enhanced' 
+- Basically, we're just initialising annotator.js (which )
+*/
+
+
+/* This should probably be a in a seperate file */
+// I've followed this: http://docs.annotatorjs.org/en/latest/hacking/plugin-development.html
+// It's deeply confusing. 
+Annotator.Plugin.AnnotationToComment = function (element, message) {
+  return {
+    pluginInit: function () {
+      this.annotator
+          .subscribe("annotationCreated", function (annotation) {// Annotation created event! 
+            Comments.insert({
+              // annotation: annotation, // This would be nice, but gives an Uncaught RangeError
+              text: annotation.text,
+              date: new Date().getTime(),
+              userEmail: Meteor.user().emails[0].address,
+              ranges: annotation.ranges,
+              quote: annotation.quote
+            });
+            console.info("The annotation: %o has just been created!", annotation)
+          })
+          .subscribe("annotationUpdated", function (annotation) {
+            console.info("The annotation: %o has just been updated!", annotation)
+          })
+          .subscribe("annotationDeleted", function (annotation) {
+            console.info("The annotation: %o has just been deleted!", annotation)
+          });
+    }
+  }
+}
+
 
 jQuery(document).ready(function($) {
-  $('.post-text').annotator();  
+  $('.post-text').annotator()
+                 .annotator('addPlugin','AnnotationToComment')
+                 /*.annotator('setupPlugins')*/;
 });
 
 }
@@ -83,5 +124,13 @@ if (Meteor.isServer) {
   Meteor.startup(function () {
   //allows for authentication with annotation libraries
   Meteor.require('jwt-simple')
+  return Meteor.methods({
+      // Meteor.call('removeAllPosts')
+      // From the console, this will remove all stored posts.
+
+      removeAllPosts: function() { 
+            return Comments.remove({});
+      }
+  })
   });
 }

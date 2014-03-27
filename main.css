@@ -5,7 +5,8 @@ body{
 
 .post-text{
 	width:50%;
-	float:left
+	float:left;
+	background-color: white; /* My life is so much better now */
 }
 .wrapperinput{
 	margin-right: 30px;
@@ -17,6 +18,15 @@ body{
 	border: grey 1px dotted;
 	border-radius: 10px;
 	margin: 1em 1em;
+}
+
+.comment_text{
+}
+
+.comment_footer{
+	font-size: 1; /* Why doesn't this work? */
+	text-align: center;
+	color:gray;
 }
 
 #new_comment{
